@@ -224,17 +224,6 @@ footer {
 	image-rendering: -webkit-optimize-contrast;
 }
 
-/* THE SEAMLESS KEYFRAME */
-@keyframes scroll-seamless {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        /* This moves exactly half the total width of the 16 images */
-        /* This creates the illusion of an endless loop with no pause */
-        transform: translateX(-50%);
-    }
-}
 
 /* The Rounding Logic */
 @keyframes infinite-round {
@@ -244,7 +233,8 @@ footer {
     to {
         /* This moves exactly half of the duplicated content */
         /*calc(-50% - (total gaps / 2)) */
-        transform: translateX(calc(-50% - 10px));
+       /* transform: translateX(calc(-50% - 10px));*/
+		transform: translateX(-50%);
     }
 }
 @keyframes scroll-eight {
@@ -308,6 +298,7 @@ footer {
 }
 
 /* Mobile Tweak */
+
 
 
 
