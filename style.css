@@ -190,7 +190,7 @@ footer {
 	width: max-content; /* CRITICAL: This tells the row to be as wide as all images combined */
 	/* Hardware acceleration: This forces the phone to use its GPU */
     will-change: transform;
-    translate3d(x, y, z);
+    transform: translate3d(x, y, z);
     backface-visibility: hidden;
     perspective: 1000px;
     /* Adjust '20s' to make it faster or slower */
@@ -291,4 +291,5 @@ footer {
 }
 
 /* Mobile Tweak */
+
 
