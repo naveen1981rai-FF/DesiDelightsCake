@@ -1,0 +1,293 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+    background-color: #fdfaf7;
+    color: #3e2723;
+}
+
+/* Updated Hero Image: Still life of ingredients (No faces/hands) */
+.hero-section {
+    background: url('https://images.unsplash.com/photo-1495147466023-ac5c588e2e94?auto=format&fit=crop&w=1600&q=80');
+    background-size: cover;
+    background-position: center;
+    height: 450px;
+    position: relative;
+}
+
+.overlay {
+    background: rgba(0, 0, 0, 0.4);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+.cta-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 25px;
+    background: #8d6e63;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Menu Grid */
+.container {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
+}
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+    color: #5d4037;
+    font-size: 2.2rem;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    text-align: center;
+}
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.image-container img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.order-trigger {
+    background-color: #5d4037;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 25px;
+    width: 90%;
+    max-width: 450px;
+    border-radius: 15px;
+    text-align: center;
+    position: relative;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.close-btn {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #aaa;
+}
+
+#modalImg {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.price-list ul {
+    list-style: none;
+    padding: 15px 0;
+}
+
+.price-list li {
+    padding: 8px;
+    background: #f9f4f0;
+    margin: 5px 0;
+    font-weight: bold;
+}
+
+.phone-number {
+    display: block;
+    font-size: 1.8rem;
+    color: #d2691e;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    background: #f1e4d8;
+}
+
+.gallery-marquee-container {
+    max-width: 900px; /* Limits view to 3 images (300px each) */
+    margin: 50px auto;
+    overflow: hidden; /* Hides the images outside the 900px box */
+    padding: 20px 0;
+	-webkit-transform: translateZ(0);
+}
+
+.gallery-title {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #5d4037;
+    font-size: 2.2rem;
+}
+
+.marquee-window {
+    display: flex;
+    width: 100%;
+}
+
+.marquee-content {
+    display: flex;
+    /* The gap must be consistent for the math to work */
+    gap: 20px; 
+	width: max-content; /* CRITICAL: This tells the row to be as wide as all images combined */
+	/* Hardware acceleration: This forces the phone to use its GPU */
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+    /* Adjust '20s' to make it faster or slower */
+    animation: infinite-round 30s linear infinite;
+	background-color: #ffffff;
+}
+
+.gallery-item {
+    flex: 0 0 calc(300px - 14px); /* CRITICAL: 0 0 means "Do not grow" and "Do not shrink" */
+    height: 300px;
+	transform: translateZ(0);
+}
+
+@media (max-width: 768px) {
+    .gallery-item {
+        flex: 0 0 220px; /* Mobile width */
+        height: 220px;
+    }
+    .marquee-content {
+        gap: 10px;
+        animation-duration: 20s; /* Speed up for shorter distance */
+    }
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+	border-radius: 12px;
+	image-rendering: -webkit-optimize-contrast;
+}
+
+/* The Rounding Logic */
+@keyframes infinite-round {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        /* This moves exactly half of the duplicated content */
+        /*calc(-50% - (total gaps / 2)) */
+        transform: translateX(calc(-50% - 10px));
+    }
+}
+@keyframes scroll-eight {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(calc(-50% - 10px), 0, 0); }
+}
+
+/* Pause on Hover */
+.marquee-window:hover .marquee-content {
+    animation-play-state: paused;
+}
+
+/* About Section Styles */
+.about-section {
+    padding: 80px 20px;
+    background-color: #ffffff;
+}
+
+.about-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap; /* Stack on mobile */
+}
+
+.about-image {
+    flex: 1;
+    min-width: 300px;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    display: block; /* Ensures no weird gaps */
+}
+
+.about-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.about-text h2 {
+    font-size: 2.5rem;
+    color: #5d4037;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* Mobile Tweak */
