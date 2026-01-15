@@ -235,6 +235,23 @@ footer {
         transform: translateX(-50%);
     }
 }
+
+/* The Rounding Logic */
+@keyframes infinite-round {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        /* This moves exactly half of the duplicated content */
+        /*calc(-50% - (total gaps / 2)) */
+        transform: translateX(calc(-50% - 10px));
+    }
+}
+@keyframes scroll-eight {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(calc(-50% - 10px), 0, 0); }
+}
+
 @keyframes scroll-eight {
     0% { transform: translate3d(0, 0, 0); }
     100% { transform: translate3d(calc(-50% - 10px), 0, 0); }
@@ -291,6 +308,7 @@ footer {
 }
 
 /* Mobile Tweak */
+
 
 
 
