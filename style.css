@@ -194,7 +194,7 @@ footer {
     backface-visibility: hidden;
     perspective: 1000px;
     /* Adjust '20s' to make it faster or slower */
-    animation: infinite-round 30s linear infinite;
+    animation: infinite-round 3000s linear infinite;
 	background-color: #ffffff;
 }
 
@@ -298,6 +298,7 @@ footer {
 }
 
 /* Mobile Tweak */
+
 
 
 
