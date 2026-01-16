@@ -177,56 +177,54 @@ footer {
     color: #5d4037;
     font-size: 2.2rem;
 }
+.marquee-window {
+    display: flex;
+    width: 100%;
+}
 
 .marquee-content {
     display: flex;
     width: max-content;
-    gap: 20px;
+    /* Use a fixed gap so we can calculate it */
+    gap: 20px; 
     
-    /* Hardware Acceleration: Tells the phone to use the GPU */
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
+    /* Hardware acceleration for mobile */
     will-change: transform;
+    transform: translate3d(0, 0, 0);
     
-    /* Forces the browser to treat the movement as a continuous flow */
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    
-    /* Animation speed - use 'linear' to prevent the slow-fast-pause effect */
-    animation: scroll-seamless 40s linear infinite;
+    /* 'linear' is vital - 'ease' causes a fake pause */
+    animation: scroll-8-images 30s linear infinite;
 }
 
-/* THE SMOOTH ANIMATION MATH */
-@keyframes scroll-seamless {
+.gallery-item {
+    flex: 0 0 300px; /* Force every item to be 300px */
+    height: 300px;
+}
+
+@keyframes scroll-8-images {
     0% {
         transform: translate3d(0, 0, 0);
     }
     100% {
-        /* Move exactly -50% to align the second set of images */
-        transform: translate3d(-50%, 0, 0);
+        /* Move half of the 16 images (8 images) */
+        /* Math: (8 images * 300px) + (8 gaps * 20px) = 2560px */
+        /* Instead of -50%, we use the exact pixel value of the first set */
+        transform: translate3d(-2560px, 0, 0); 
     }
 }
 
-/* Webkit version for Safari/iPhone */
-@-webkit-keyframes scroll-seamless {
-    0% { -webkit-transform: translate3d(0, 0, 0); }
-    100% { -webkit-transform: translate3d(-50%, 0, 0); }
-}
-
-.gallery-item {
-    flex: 0 0 calc(300px - 14px); /* CRITICAL: 0 0 means "Do not grow" and "Do not shrink" */
-    height: 300px;
-	transform: translateZ(0);
-}
-
+/* Mobile Adjustments */
 @media (max-width: 768px) {
     .gallery-item {
-        flex: 0 0 220px; /* Mobile width */
-        height: 220px;
+        flex: 0 0 200px;
+        height: 200px;
     }
-    .marquee-content {
-        gap: 10px;
-        animation-duration: 20s; /* Speed up for shorter distance */
+    @keyframes scroll-8-images {
+        0% { transform: translate3d(0, 0, 0); }
+        100% { 
+            /* Mobile Math: (8 images * 200px) + (8 gaps * 20px) = 1760px */
+            transform: translate3d(-1760px, 0, 0); 
+        }
     }
 }
 
@@ -302,6 +300,7 @@ footer {
 }
 
 /* Mobile Tweak */
+
 
 
 
