@@ -233,8 +233,8 @@ footer {
     to {
         /* This moves exactly half of the duplicated content */
         /*calc(-50% - (total gaps / 2)) */
-       /* transform: translateX(calc(-50% - 10px));*/
-		transform: translateX(-50%);
+        transform: translateX(calc(-50% - 10px));
+		/*transform: translateX(-50%);*/
     }
 }
 @keyframes scroll-eight {
@@ -293,6 +293,7 @@ footer {
 }
 
 /* Mobile Tweak */
+
 
 
 
