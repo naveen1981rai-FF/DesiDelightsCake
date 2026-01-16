@@ -237,11 +237,6 @@ footer {
 		/*transform: translateX(-50%);*/
     }
 }
-@keyframes scroll-eight {
-    0% { transform: translate3d(0, 0, 0); }
-    100% { transform: translate3d(calc(-50% - 10px), 0, 0); }
-}
-
 /* Pause on Hover */
 .marquee-window:hover .marquee-content {
     animation-play-state: paused;
@@ -293,6 +288,7 @@ footer {
 }
 
 /* Mobile Tweak */
+
 
 
 
