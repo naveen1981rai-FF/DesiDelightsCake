@@ -211,7 +211,7 @@ footer {
     }
     .marquee-content {
         gap: 10px;
-        animation-duration: 3000s; /* Speed up for shorter distance */
+        animation-duration: 20s; /* Speed up for shorter distance */
     }
 }
 
@@ -293,6 +293,7 @@ footer {
 }
 
 /* Mobile Tweak */
+
 
 
 
