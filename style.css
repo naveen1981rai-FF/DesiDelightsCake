@@ -187,18 +187,35 @@ footer {
     display: flex;
     width: max-content;
     gap: 20px;
-    -webkit-animation: scroll-seamless 30s linear infinite;
-    animation: scroll-seamless 30s linear infinite;
+    
+    /* Hardware Acceleration: Tells the phone to use the GPU */
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    will-change: transform;
+    
+    /* Forces the browser to treat the movement as a continuous flow */
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    
+    /* Animation speed - use 'linear' to prevent the slow-fast-pause effect */
+    animation: scroll-seamless 40s linear infinite;
 }
 
-@-webkit-keyframes scroll-seamless {
-    0% { -webkit-transform: translateX(0); }
-    100% { -webkit-transform: translateX(-50%); }
-}
-
+/* THE SMOOTH ANIMATION MATH */
 @keyframes scroll-seamless {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        /* Move exactly -50% to align the second set of images */
+        transform: translate3d(-50%, 0, 0);
+    }
+}
+
+/* Webkit version for Safari/iPhone */
+@-webkit-keyframes scroll-seamless {
+    0% { -webkit-transform: translate3d(0, 0, 0); }
+    100% { -webkit-transform: translate3d(-50%, 0, 0); }
 }
 
 .gallery-item {
@@ -290,4 +307,5 @@ footer {
 }
 
 /* Mobile Tweak */
+
 
