@@ -211,7 +211,7 @@ footer {
     }
     .marquee-content {
         gap: 10px;
-        animation-duration: 20s; /* Speed up for shorter distance */
+        animation-duration: 3000s; /* Speed up for shorter distance */
     }
 }
 
@@ -237,11 +237,6 @@ footer {
 		transform: translateX(-50%);
     }
 }
-@keyframes scroll-eight {
-    0% { transform: translate3d(0, 0, 0); }
-    100% { transform: translate3d(calc(-50% - 10px), 0, 0); }
-}
-
 @keyframes scroll-eight {
     0% { transform: translate3d(0, 0, 0); }
     100% { transform: translate3d(calc(-50% - 10px), 0, 0); }
@@ -298,6 +293,7 @@ footer {
 }
 
 /* Mobile Tweak */
+
 
 
 
