@@ -190,11 +190,11 @@ footer {
 	width: max-content; /* CRITICAL: This tells the row to be as wide as all images combined */
 	/* Hardware acceleration: This forces the phone to use its GPU */
     will-change: transform;
-    transform: translate3d(x, y, z);
+    transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
     perspective: 1000px;
     /* Adjust '20s' to make it faster or slower */
-    animation: infinite-round 3000s linear infinite;
+    animation: infinite-round 30s linear infinite;
 	background-color: #ffffff;
 }
 
@@ -224,7 +224,6 @@ footer {
 	image-rendering: -webkit-optimize-contrast;
 }
 
-
 /* The Rounding Logic */
 @keyframes infinite-round {
     from {
@@ -234,9 +233,9 @@ footer {
         /* This moves exactly half of the duplicated content */
         /*calc(-50% - (total gaps / 2)) */
         transform: translateX(calc(-50% - 10px));
-		/*transform: translateX(-50%);*/
     }
 }
+
 /* Pause on Hover */
 .marquee-window:hover .marquee-content {
     animation-play-state: paused;
@@ -288,13 +287,3 @@ footer {
 }
 
 /* Mobile Tweak */
-
-
-
-
-
-
-
-
-
-
