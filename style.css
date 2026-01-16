@@ -193,7 +193,7 @@ footer {
     transform: translate3d(0, 0, 0);
     
     /* 'linear' is vital - 'ease' causes a fake pause */
-    animation: scroll-8-images 50s linear infinite;
+    animation: scroll-8-images 40s linear infinite;
 }
 
 .gallery-item {
@@ -300,6 +300,7 @@ footer {
 }
 
 /* Mobile Tweak */
+
 
 
 
